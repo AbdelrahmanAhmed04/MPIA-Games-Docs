@@ -12,3 +12,11 @@ In addition, the documentation explains how to add the Loading Bar script, which
 The Parameters Forwarding script is also covered in this documentation, which allows website owners to forward certain parameters from the URL to their website's affiliate links. This is essential for monitoring the advertisments efficiency.
 
 Finally, the documentation covers how to add the Map Resizer script, which can be used to automatically resize embedded maps on a website to fit the available space. This can help to improve the user experience and make it easier for visitors to navigate a website.
+
+## Matomo Installation
+<ol>
+  <li>Install Matomo on-permise from their <a href="https://matomo.org/faq/on-premise/installing-matomo/">website</a></li>
+  <li>Unzip the files</li>
+  <li>Upload the files to the desired directory in your website using ftp</li>
+  <li>Follow the steps and finish installing Matomo</li>
+</ol>
