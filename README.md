@@ -70,31 +70,33 @@ It will be simple html static page used as the white page for the googkle bots, 
 This is a simple page with few lines of code, mainly its objective is to enable changing the cloaking from on to off and vice versa without having to edit the code itself. Its code works as following
 1- The first 30 lines of code are mainly for styling the form, pretty straight forward
 2- From line 30 to line 80, it verifies the login form and if the credentials were correct, a table with the options to turn the cloaking on or off will appear
+
   ![image](https://user-images.githubusercontent.com/89594421/232647272-ef8d3b52-7a2b-49da-8f6b-d9950f4e988b.png)
+  
 3- Here comes the main functionality of the page, it checks the cloaking state which can be changed from the table mentioned above, if the cloaking is off the names of the pages change as following
 
   ```php
-  		$cloaking = $_GET['cloaking'];
+ $cloaking = $_GET['cloaking'];
 		
-		if ($cloaking == 'off') {
-			rename("index.php","index2.php");
-			rename("index2.html","index.html");
-			?>
-			<script>alert("Cloaking has been turned off.");window.location=window.location.href.split("?")[0];</script>
-			<?php
-		}
+if ($cloaking == 'off') {
+rename("index.php","index2.php");
+rename("index2.html","index.html");
+?>
+<script>alert("Cloaking has been turned off.");window.location=window.location.href.split("?")[0];</script>
+<?php
+}
   ```
 As you can see, this changes the <em>index.php</em> to <em>index2.php</em> which completly disables the cloaking (as the cloaking script won't be excuted at all), while it changes the <em>index2.html</em> to <em>index.html</em> so it's excuted however a bot or a real user access the page
 
 
 Otherwise, if the cloaking is on, this code will be excuted.
 ```php
-	elseif($cloaking == 'on') {
-			rename("index2.php","index.php");
-			rename("index.html","index2.html");
-			?>
-			<script>alert("Cloaking has been turned on.");window.location=window.location.href.split("?")[0];</script>
-			<?php
+elseif($cloaking == 'on') {
+rename("index2.php","index.php");
+rename("index.html","index2.html");
+?>
+<script>alert("Cloaking has been turned on.");window.location=window.location.href.split("?")[0];</script>
+
   ```
 
 Most of the times, you don't need to edit any of the toggle.php <strong>except for the lines where the url of the current page is mentioned</strong>. For example here
