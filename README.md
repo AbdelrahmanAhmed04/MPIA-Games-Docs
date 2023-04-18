@@ -69,7 +69,9 @@ It will be simple html static page used as the white page for the googkle bots, 
 ## toggle.php
 
 This is a simple page with few lines of code, mainly its objective is to enable changing the cloaking from on to off and vice versa without having to edit the code itself. Its code works as following
+
 1- The first 30 lines of code are mainly for styling the form, pretty straight forward
+
 2- From line 30 to line 80, it verifies the login form and if the credentials were correct, a table with the options to turn the cloaking on or off will appear
 
   ![image](https://user-images.githubusercontent.com/89594421/232647272-ef8d3b52-7a2b-49da-8f6b-d9950f4e988b.png)
