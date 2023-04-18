@@ -68,12 +68,11 @@ It will be simple html static page used as the white page for the googkle bots, 
 ## toggle.php
 
 This is a simple page with few lines of code, mainly its objective is to enable changing the cloaking from on to off and vice versa without having to edit the code itself. Its code works as following
-<ol>
-  <li>The first 30 lines of code are mainly for styling the form, pretty straight forward</li>
-  <li>From line 30 to line 80, it verifies the login form and if the credentials were correct, a table with the options to turn the cloaking on or off will appear</li>
+1- The first 30 lines of code are mainly for styling the form, pretty straight forward
+2- From line 30 to line 80, it verifies the login form and if the credentials were correct, a table with the options to turn the cloaking on or off will appear
   ![image](https://user-images.githubusercontent.com/89594421/232647272-ef8d3b52-7a2b-49da-8f6b-d9950f4e988b.png)
-  <li>Here comes the main functionality of the page, it checks the cloaking state which can be changed from the table mentioned above, if the cloaking is off the names of the pages change as following
-  </li>
+3- Here comes the main functionality of the page, it checks the cloaking state which can be changed from the table mentioned above, if the cloaking is off the names of the pages change as following
+
   ```php
   		$cloaking = $_GET['cloaking'];
 		
@@ -100,7 +99,7 @@ Otherwise, if the cloaking is on, this code will be excuted.
 
 Most of the times, you don't need to edit any of the toggle.php <strong>except for the lines where the url of the current page is mentioned</strong>. For example here
 ```html
-	<td><button class="btn btn-info" onclick="window.location='https://arabcen.com/bwcgu/'">Test</button></td>
+<td><button class="btn btn-info" onclick="window.location='https://arabcen.com/bwcgu/'">Test</button></td>
   ```
 </ol>
 
