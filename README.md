@@ -20,4 +20,5 @@ Finally, the documentation covers how to add the Map Resizer script, which can b
   <li>Upload the files to the desired directory in your website using ftp</li>
   <li>Follow the steps and finish installing Matomo</li>
 </ol>
+
 This step is fairly easy, you just need to follow the Matomo installation guide and you will be fine
