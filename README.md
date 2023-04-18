@@ -28,12 +28,12 @@ Cloaking is PHP code that simply shows a page to the real user different than th
 <ol>
   <li>index.php: Which will include the cloaking script</li>
   <li>index2.html: The white page (the travel agency page which is viewed to the search engines)</li>
+   <li>toggle.php: The toggle page (the toggler that controls if the cloaking is on or off)</li>
   <li>content.php: The offer page (the casino page that is showed to the real users)</li>
-  <li>toggle.php: The toggle page (the toggler that controls if the cloaking is on or off)</li>
 </ol>
 
 ## Setting up index.php
-Most of the time you won't need to change anything in this page. Its code is pretty straight forward and the comments well explains everything. However, here are some highlights.
+Most of the time you won't need to change anything in this page. Its code is pretty straight forward and the comments well explains everything. However, here are some highlights. You will find the code in the repository.
 
 Defining the names of the pages
 ```php
@@ -46,4 +46,61 @@ Defining the allowed countries
 /* For example, if you enter 'RU,UA' in the next line, system will only allow users from Russia and Ukraine */
 $CLOAKING['ALLOW_GEO'] = 'KW,AE,QA,CO,MA,EG';
 ```
+
+Defining either to allow desktop users or not
+```php
+/* change 'false' to 'true' to block desctop devices */
+$CLOAKING['BLOCK_DESCTOP'] = false;
+```
+
+As you can see the code is easy and you won't need to miss that much with the code, just change the allowed countries and you will be good to go.
+
+## index2.html
+
+It will be simple html static page used as the white page for the googkle bots, you will find some pages we used in the website you can check them out. Please note the following when applying a new white page
+
+<ol>
+  <li>Make sure to compress all the images used as much as you can</li>
+  <li>Make sure the page is responsive across different devices</li>
+  <li>Make sure that the translation is correct</li>
+  <li>Make sure to include any keywords mentioned by the managers</li>
+</ol>
+## toggle.php
+
+This is a simple page with few lines of code, mainly its objective is to enable changing the cloaking from on to off and vice versa without having to edit the code itself. Its code works as following
+<ol>
+  <li>The first 30 lines of code are mainly for styling the form, pretty straight forward</li>
+  <li>From line 30 to line 80, it verifies the login form and if the credentials were correct, a table with the options to turn the cloaking on or off will appear</li>
+  ![image](https://user-images.githubusercontent.com/89594421/232647272-ef8d3b52-7a2b-49da-8f6b-d9950f4e988b.png)
+  <li>Here comes the main functionality of the page, it checks the cloaking state which can be changed from the table mentioned above, if the cloaking is off the names of the pages change as following
+  </li>
+  ```php
+  		$cloaking = $_GET['cloaking'];
+		
+		if ($cloaking == 'off') {
+			rename("index.php","index2.php");
+			rename("index2.html","index.html");
+			?>
+			<script>alert("Cloaking has been turned off.");window.location=window.location.href.split("?")[0];</script>
+			<?php
+		}
+  ```
+As you can see, this changes the <em>index.php</em> to <em>index2.php</em> which completly disables the cloaking (as the cloaking script won't be excuted at all), while it changes the <em>index2.html</em> to <em>index.html</em> so it's excuted however a bot or a real user access the page
+
+
+Otherwise, if the cloaking is on, this code will be excuted.
+```php
+	elseif($cloaking == 'on') {
+			rename("index2.php","index.php");
+			rename("index.html","index2.html");
+			?>
+			<script>alert("Cloaking has been turned on.");window.location=window.location.href.split("?")[0];</script>
+			<?php
+  ```
+
+Most of the times, you don't need to edit any of the toggle.php <strong>except for the lines where the url of the current page is mentioned</strong>. For example here
+```html
+	<td><button class="btn btn-info" onclick="window.location='https://arabcen.com/bwcgu/'">Test</button></td>
+  ```
+</ol>
 
