@@ -65,6 +65,7 @@ It will be simple html static page used as the white page for the googkle bots, 
   <li>Make sure that the translation is correct</li>
   <li>Make sure to include any keywords mentioned by the managers</li>
 </ol>
+
 ## toggle.php
 
 This is a simple page with few lines of code, mainly its objective is to enable changing the cloaking from on to off and vice versa without having to edit the code itself. Its code works as following
